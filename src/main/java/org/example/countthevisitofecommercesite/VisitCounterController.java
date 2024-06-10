@@ -16,7 +16,7 @@ public class VisitCounterController {
     @GetMapping("/visit")
     public String visit() {
         Long count = redisTemplate.opsForValue().increment(VISIT_COUNT_KEY);
-        return "Number of visits: ";
+        return "Number of visits: " + redisTemplate.opsForValue().get(VISIT_COUNT_KEY);
     }
 
     @GetMapping("/count")
